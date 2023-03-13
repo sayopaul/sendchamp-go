@@ -1,3 +1,3 @@
-module github.com/fuadop/sendchamp
+module github.com/sayopaul/sendchamp-go
 
 go 1.16
