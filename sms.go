@@ -28,10 +28,10 @@ type Sms struct {
 }
 
 type sendSmsPayload struct {
-	SenderName string   `json:"sender_name"`
-	To         []string `json:"to"`
-	Message    string   `json:"message"`
-	Route      string   `json:"route"`
+	SenderName string `json:"sender_name"`
+	To         string `json:"to"`
+	Message    string `json:"message"`
+	Route      string `json:"route"`
 }
 
 type createSenderIdPayload struct {
@@ -41,8 +41,8 @@ type createSenderIdPayload struct {
 }
 
 type sendSmsResponse struct {
-	Status  uint              `json:"status"`
-	Code    string              `json:"code"`
+	Status  string              `json:"status"`
+	Code    uint                `json:"code"`
 	Message string              `json:"message"`
 	Data    sendSmsResponseData `json:"data"`
 }
@@ -69,7 +69,7 @@ type sendSmsResponseData struct {
 }
 
 type createSenderIDResponse struct {
-	Status  uint                     `json:"status"`
+	Status  uint                       `json:"status"`
 	Code    string                     `json:"code"`
 	Message string                     `json:"message"`
 	Data    createSenderIDResponseData `json:"data"`
@@ -88,7 +88,7 @@ type GetDeliveryReport struct {
 }
 
 // Send sms to one or many phone number
-func (s *Sms) Send(senderName string, to []string, message, route string) (sendSmsResponse, error) {
+func (s *Sms) Send(senderName string, to string, message, route string) (sendSmsResponse, error) {
 	url := fmt.Sprint(s.client.baseURL, endpointSendSms)
 	// populate request body
 	payload := sendSmsPayload{

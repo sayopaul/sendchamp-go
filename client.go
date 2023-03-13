@@ -51,7 +51,7 @@ type Request struct {
 func (c *Client) NewRequest(method, url string) *Request {
 	return &Request{
 		Method: method,
-		URL: url,
+		URL:    url,
 	}
 }
 
